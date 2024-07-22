@@ -53,16 +53,22 @@ document.querySelectorAll(".cabecalho__lista-item").forEach((item) => {
   });
 });
 
-/*
-
-*/
-
-document.querySelectorAll(".botao-acordeao").forEach(button => {
-    button.addEventListener('click' () => alternarAcordeon(button));
+/**
+ * Accordion
+ */
+document.querySelectorAll(".botao-acordeao").forEach((button) => {
+    button.addEventListener("click", () => alternarAcordeao(button));
 });
 
-function alternarAcordeon(button) {
-    const content = button.nextElementSibling;
-
-    content.classList.add("expandido")
-}
+function alternarAcordeao(button) {
+    const isAlreadyOpen = button.getAttribute("aria-expanded") === "true";
+  
+    if (!isAlreadyOpen) {
+      button.setAttribute("aria-expanded", "true");
+      
+      const content = button.nextElementSibling;
+      content.classList.add("expandido");
+      
+      content.setAttribute("aria-hidden", "false");
+    }
+  }
