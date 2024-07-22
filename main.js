@@ -5,4 +5,12 @@ document.querySelectorAll(".cabecalho__lista-item").forEach(item => {
 
 
     item.addEventListener("mouseout", () => alternarSubmenu (item, false));
+
+    item.addEventListener("click", () => {
+        const submenu = item.querySelector('.submenu');
+
+        const isDisplayer = submenu.computedStyleMap.display === "block";
+
+        alternarSubmenu(item, !isDisplayer)
+    })
 });
