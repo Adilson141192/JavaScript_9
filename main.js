@@ -1,9 +1,17 @@
+function alternarSubmenu(item, mostrar) {
+    const submenu = item.querySelector(".submenu");
 
+    if (submenu) {
+        submenu.style.display = mostrar ? "block" : "none";
+    }
+}
+
+//
 document.querySelectorAll(".cabecalho__lista-item").forEach(item => {
-
+    //
     item.addEventListener("mouseover", () => alternarSubmenu(item, true));
 
-
+    //
     item.addEventListener("mouseout", () => alternarSubmenu (item, false));
 
     item.addEventListener("click", () => {
@@ -14,3 +22,4 @@ document.querySelectorAll(".cabecalho__lista-item").forEach(item => {
         alternarSubmenu(item, !isDisplayer)
     })
 });
+
