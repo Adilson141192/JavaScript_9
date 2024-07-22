@@ -1,8 +1,21 @@
+function gerenciaFocoModal(modalId) {
+    const modal = document.querySelector(`#${modalId}`);
+    const elementosModal = modal.querySelectorAll(
+        'a, button, input, select, textarea, [tabindex]:not([tabindex="-1"])'
+    );
+
+    const primeiroElemento = elementosModal[0];
+    const ultimoElemento = elementosModal [elementosModal.length -1]; 
+
+    primeiroElemento.focus();
+}
+
 function alternarModal(modalId, abrir) {
   const modal = document.querySelector(`#${modalId}`);
 
   if (abrir) {
     modal.style.display = "block";
+    gerenciaFocoModal(modalId);
   } else {
     modal.style.display = "none";
   }
